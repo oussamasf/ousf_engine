@@ -1,0 +1,29 @@
+version: "3.4"
+services:
+
+  nginx:
+    container_name: "loadBalancer"
+    image: nginx
+    ports:
+      - "80:80"
+    networks:
+      - "netengine"
+
+  api:
+    container_name: "ousfEngine"
+    build:
+      context: "./"
+      dockerfile: dockerfile
+    
+    ports:
+      - "5050:5050"
+
+    networks:
+      - "netengine"
+
+
+networks:
+  netengine: 
+    name: netengine
+    driver: bridge
+
