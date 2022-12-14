@@ -3,7 +3,9 @@ services:
 
   nginx:
     container_name: "loadBalancer"
-    image: nginx
+    build:
+      context: "./services/nginx"
+      dockerfile: dockerfile
     ports:
       - "80:80"
     networks:
