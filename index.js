@@ -4,8 +4,7 @@ const express = require("express");
 
 const app = express();
 
-const { connectDB } = require("./databases/mongodb");
-connectDB();
+require("./databases/mongodb");
 
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
