@@ -12,7 +12,7 @@ services:
       - "netengine"
 
   api:
-    container_name: "ousfEngine"
+    container_name: "app_ousf"
     build:
       context: "./"
       dockerfile: dockerfile
@@ -24,7 +24,7 @@ services:
       - "netengine"
 
   mongo:
-    container_name: engineDb
+    container_name: mongodb_ousf
     image: mongo:4.2
 
     volumes:
