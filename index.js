@@ -1,5 +1,11 @@
+require("dotenv").config();
+
 const express = require("express");
+
 const app = express();
+
+const { connectDB } = require("./databases/mongodb");
+connectDB();
 
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -7,9 +13,8 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const logger = require("./utils/config.winston");
+const logger = require("./utils/logger");
 
-require("dotenv").config();
 const PORT = process.env.PORT || 5050;
 
 app.use(bodyParser.json());

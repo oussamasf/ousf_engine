@@ -18,10 +18,25 @@ services:
       dockerfile: dockerfile
     
     ports:
-      - "5050:5050"
+      - "${PORT}:${PORT}"
 
     networks:
       - "netengine"
+
+  mongo:
+    container_name: engineDb
+    image: mongo:4.2
+
+    volumes:
+      - ./data/dataMongo:/data/db:rw
+
+    ports:
+      - ${MONGO_DB_PORT}:27017
+    
+    networks:
+      - "netengine"
+      
+
 
 
 networks:
