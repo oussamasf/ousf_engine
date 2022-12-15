@@ -1,8 +1,10 @@
 up:
+	export $(grep -v '^#' .env | xargs)
 	docker-compose up -d 
 
-re-build: 
-	docker-compose up -d --build
+rebuild: 
+	export $(grep -v '^#' .env | xargs)
+	docker-compose up -d --build 
 
 server-stop:
 	pm2 stop ecosystem.config.js
